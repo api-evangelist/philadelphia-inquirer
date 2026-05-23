@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/philadelphia-inquirer/main/json-schema/dewey-search-result-schema.json",
+  "title": "Dewey Search Result",
+  "description": "A single ranked article chunk returned by the Dewey MCP `search_archive` tool.",
+  "type": "object",
+  "properties": {
+    "chunk_id": { "type": "string" },
+    "article_id": { "type": "string" },
+    "title": { "type": "string" },
+    "published_date": { "type": "string", "format": "date-time" },
+    "author": { "type": "string" },
+    "link": { "type": "string", "format": "uri" },
+    "chunk_text": { "type": "string" },
+    "score": { "type": "number" }
+  },
+  "required": ["chunk_id", "article_id", "title", "link", "score"]
+}

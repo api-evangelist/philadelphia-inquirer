@@ -1,0 +1,29 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://www.inquirer.com/arc/outboundfeeds/rss/category/sports/?outputType=xml",
+    "headers": {
+      "Accept": "application/rss+xml"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/rss+xml; charset=utf-8"
+    },
+    "body": {
+      "title": "Inquirer.com",
+      "link": "https://www.inquirer.com/sports/",
+      "description": "Sports coverage from The Philadelphia Inquirer.",
+      "lastBuildDate": "2026-05-23T12:00:00Z",
+      "items": [
+        {
+          "title": "Eagles announce minicamp schedule",
+          "link": "https://www.inquirer.com/eagles/eagles-minicamp-20260523.html",
+          "pubDate": "2026-05-23T04:00:00Z",
+          "category": ["Eagles", "NFL"]
+        }
+      ]
+    }
+  }
+}

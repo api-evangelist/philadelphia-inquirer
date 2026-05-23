@@ -1,0 +1,68 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "sitemap": "http://www.sitemaps.org/schemas/sitemap/0.9/",
+    "news": "http://www.google.com/schemas/sitemap-news/0.9/",
+    "rss": "http://purl.org/rss/1.0/",
+    "content": "http://purl.org/rss/1.0/modules/content/",
+    "PhiladelphiaInquirer": {
+      "@id": "schema:NewsMediaOrganization",
+      "@context": {
+        "name": "schema:name",
+        "url": "schema:url",
+        "parentOrganization": "schema:parentOrganization",
+        "foundingDate": "schema:foundingDate",
+        "publishingPrinciples": "schema:publishingPrinciples"
+      }
+    },
+    "Article": {
+      "@id": "schema:NewsArticle",
+      "@context": {
+        "headline": "schema:headline",
+        "datePublished": "schema:datePublished",
+        "dateModified": "schema:dateModified",
+        "author": "schema:author",
+        "articleSection": "schema:articleSection",
+        "url": "schema:url",
+        "image": "schema:image",
+        "publisher": "schema:publisher",
+        "articleBody": "schema:articleBody"
+      }
+    },
+    "RssFeed": {
+      "@id": "schema:DataFeed",
+      "@context": {
+        "title": "rss:title",
+        "link": "rss:link",
+        "description": "rss:description",
+        "lastBuildDate": "dcterms:modified",
+        "ttl": "rss:ttl",
+        "items": "rss:item"
+      }
+    },
+    "Sitemap": {
+      "@id": "sitemap:urlset",
+      "@context": {
+        "loc": "sitemap:loc",
+        "lastmod": "sitemap:lastmod",
+        "changefreq": "sitemap:changefreq",
+        "priority": "sitemap:priority"
+      }
+    },
+    "DeweySearchResult": {
+      "@id": "schema:SearchAction",
+      "@context": {
+        "chunk_id": "schema:identifier",
+        "article_id": "schema:identifier",
+        "title": "schema:name",
+        "published_date": "schema:datePublished",
+        "author": "schema:author",
+        "link": "schema:url",
+        "chunk_text": "schema:text",
+        "score": "schema:value"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+name: Philadelphia Inquirer RSS Aggregation
+description: >-
+  Capability that pulls site-wide and per-category RSS feeds from The
+  Philadelphia Inquirer, normalizes the items, and emits a deduplicated
+  article list suitable for downstream aggregation, search, or alerting.
+category: News Aggregation
+trigger: scheduled
+inputs:
+- name: categories
+  description: List of inquirer.com section slugs to pull (e.g. news, sports,
+    business, opinion). If empty, the site-wide feed is used.
+  type: array
+  items:
+    type: string
+- name: since
+  description: ISO 8601 timestamp; only emit articles published after this
+    instant.
+  type: string
+  format: date-time
+outputs:
+- name: articles
+  description: Deduplicated article list with title, link, author, category,
+    pubDate, and optional full HTML body.
+  type: array
+  items:
+    $ref: ../json-schema/rss-item-schema.json
+steps:
+- name: fetch-site-feed
+  when: "len(categories) == 0"
+  call:
+    api: philadelphia-inquirer:rss
+    operationId: getSiteRssFeed
+- name: fetch-category-feeds
+  when: "len(categories) > 0"
+  forEach: categories
+  call:
+    api: philadelphia-inquirer:rss
+    operationId: getCategoryRssFeed
+    pathParams:
+      category: "{{ item }}"
+- name: filter-since
+  description: Drop items with pubDate <= since.
+- name: dedupe
+  description: Dedupe by guid or link.

@@ -1,0 +1,33 @@
+extends:
+- spectral:oas
+rules:
+  inquirer-rss-title-case-summaries:
+    description: Operation summaries should be Title Case.
+    given: $.paths[*][get,post,put,patch,delete].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][\\w'-]*)( [A-Z][\\w'-]*)*$"
+  inquirer-rss-operation-id-camel:
+    description: operationId should be lowerCamelCase.
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+  inquirer-rss-output-type-xml:
+    description: RSS endpoints must accept outputType=xml.
+    given: $.paths[*][get].parameters[?(@.name=='outputType')]
+    severity: warn
+    then:
+      function: truthy
+  inquirer-rss-tag-required:
+    description: Operations must carry at least one tag.
+    given: $.paths[*][get,post,put,patch,delete].tags
+    severity: warn
+    then:
+      function: length
+      functionOptions:
+        min: 1

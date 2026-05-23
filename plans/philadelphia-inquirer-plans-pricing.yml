@@ -1,0 +1,40 @@
+name: The Philadelphia Inquirer Plans and Pricing
+description: >-
+  The Philadelphia Inquirer does not operate a commercial developer API
+  program. Its programmatic surfaces (RSS feeds, XML sitemaps, the Dewey MCP
+  open-source server) are free of charge and unmetered. End-user reader
+  subscriptions exist for the website, e-edition, and print paper, but those
+  are consumer media subscriptions rather than API plans. This file captures
+  the developer plane as free and unmetered, and references the consumer
+  subscription page for completeness.
+specVersion: '0.1'
+provider:
+  id: philadelphia-inquirer
+  name: The Philadelphia Inquirer
+modified: '2026-05-23'
+plans:
+- id: free-developer
+  name: Free Developer Surface
+  description: >-
+    Public RSS feeds, XML sitemaps, and Dewey MCP (self-hosted) are free of
+    charge. No API keys, no quotas, no contract. Standard web etiquette
+    (User-Agent header, reasonable polling cadence) applies.
+  price:
+    amount: 0
+    currency: USD
+    interval: none
+  includes:
+  - Site-wide and per-category RSS feeds
+  - Sitemap index and daily URL sitemaps
+  - Google News sitemap
+  - Author and restaurant sitemaps
+  - Self-host the open-source Dewey MCP server
+  limits:
+  - No documented per-IP rate limit (see rate-limits/)
+  authentication: none
+notes:
+- The Inquirer's consumer subscription page (https://www.inquirer.com/subscribe/)
+  sells digital, print, and bundled reader subscriptions; pricing is dynamic
+  and personalized and is not part of the developer plane.
+- The Lenfest Institute (nonprofit owner) funds journalism initiatives via
+  grants rather than developer-program revenue.

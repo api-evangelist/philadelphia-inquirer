@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml",
+    "headers": {
+      "Accept": "application/rss+xml"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/rss+xml; charset=utf-8"
+    },
+    "body": {
+      "title": "Inquirer.com",
+      "link": "https://www.inquirer.com",
+      "description": "The latest news from The Philadelphia Inquirer.",
+      "lastBuildDate": "2026-05-23T12:00:00Z",
+      "ttl": 60,
+      "items": [
+        {
+          "title": "Phillies rally past Mets in extras",
+          "link": "https://www.inquirer.com/phillies/phillies-mets-extras-20260523.html",
+          "author": "Scott Lauber",
+          "category": ["Sports", "Phillies"],
+          "pubDate": "2026-05-23T05:30:00Z",
+          "guid": "https://www.inquirer.com/phillies/phillies-mets-extras-20260523.html",
+          "content_encoded": "<p>The Phillies overcame a late deficit ...</p>"
+        }
+      ]
+    }
+  }
+}

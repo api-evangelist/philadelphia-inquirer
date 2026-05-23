@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://www.inquirer.com/arc/outboundfeeds/sitemap-index-2/?outputType=xml"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/xml; charset=utf-8"
+    },
+    "body": {
+      "sitemaps": [
+        {
+          "loc": "https://www.inquirer.com/arc/outboundfeeds/sitemap/latest/?outputType=xml",
+          "lastmod": "2026-05-23"
+        },
+        {
+          "loc": "https://www.inquirer.com/arc/outboundfeeds/sitemap/2026-05-22/?outputType=xml",
+          "lastmod": "2026-05-22"
+        },
+        {
+          "loc": "https://www.inquirer.com/arc/outboundfeeds/sitemap/2026-05-21/?outputType=xml",
+          "lastmod": "2026-05-21"
+        }
+      ]
+    }
+  }
+}

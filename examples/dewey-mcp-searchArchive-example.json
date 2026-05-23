@@ -1,0 +1,36 @@
+{
+  "request": {
+    "tool": "search_archive",
+    "input": {
+      "search_text": "SEPTA funding",
+      "filters": [
+        { "field": "published_date", "start": "2025-01-01T00:00:00Z", "end": "2026-05-23T00:00:00Z" }
+      ],
+      "limit": 5
+    }
+  },
+  "response": {
+    "results": [
+      {
+        "chunk_id": "art_001#chunk_3",
+        "article_id": "art_001",
+        "title": "Pennsylvania lawmakers reach deal on SEPTA funding",
+        "published_date": "2026-04-12T15:30:00Z",
+        "author": "Thomas Fitzgerald",
+        "link": "https://www.inquirer.com/transportation/septa-funding-deal-20260412.html",
+        "chunk_text": "Pennsylvania lawmakers on Thursday announced a bipartisan deal to fund SEPTA ...",
+        "score": 0.872
+      },
+      {
+        "chunk_id": "art_002#chunk_1",
+        "article_id": "art_002",
+        "title": "How SEPTA's budget gap could affect riders",
+        "published_date": "2026-02-03T10:15:00Z",
+        "author": "Thomas Fitzgerald",
+        "link": "https://www.inquirer.com/transportation/septa-budget-gap-20260203.html",
+        "chunk_text": "If lawmakers do not act, SEPTA has warned of service cuts that ...",
+        "score": 0.812
+      }
+    ]
+  }
+}

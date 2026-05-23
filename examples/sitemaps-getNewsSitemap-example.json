@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://www.inquirer.com/arc/outboundfeeds/news-sitemap/?outputType=xml"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/xml; charset=utf-8"
+    },
+    "body": {
+      "urls": [
+        {
+          "loc": "https://www.inquirer.com/news/philadelphia/city-budget-20260523.html",
+          "news": {
+            "publication": {
+              "name": "The Philadelphia Inquirer",
+              "language": "en"
+            },
+            "publication_date": "2026-05-23T11:00:00Z",
+            "title": "Philadelphia approves 2027 city budget"
+          }
+        }
+      ]
+    }
+  }
+}

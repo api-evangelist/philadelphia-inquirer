@@ -1,0 +1,85 @@
+name: Philadelphia Inquirer Vocabulary
+description: >-
+  Domain vocabulary covering The Philadelphia Inquirer's public programmatic
+  surfaces (RSS feeds, sitemaps, the Dewey MCP archive search), its ownership
+  and editorial structure, and the Arc XP publishing platform that underlies
+  inquirer.com.
+created: '2026-05-23'
+modified: '2026-05-23'
+terms:
+- term: The Philadelphia Inquirer
+  definition: The largest daily newspaper in Pennsylvania, founded in 1829,
+    publishing as inquirer.com and as a print edition.
+- term: The Lenfest Institute for Journalism
+  definition: Nonprofit, non-controlling owner of The Philadelphia Inquirer
+    since 2016; funds local-journalism initiatives across Philadelphia and
+    Pennsylvania.
+- term: Philadelphia Media Network
+  definition: Former for-profit corporate parent that operated The Inquirer
+    prior to its 2016 transfer to nonprofit ownership.
+- term: Spotlight PA
+  definition: Pennsylvania investigative-journalism collaboration; The
+    Inquirer is a founding member.
+- term: Arc XP
+  definition: Cloud publishing platform (originally Arc Publishing from The
+    Washington Post) that powers inquirer.com and emits the public RSS feeds
+    and XML sitemaps documented here.
+- term: RSS Feed
+  definition: RSS 2.0 channel served from `/arc/outboundfeeds/rss/`; a
+    site-wide feed and per-category feeds expose article metadata and full
+    encoded HTML.
+- term: Site-Wide Feed
+  definition: The top-level Inquirer.com RSS feed of recent articles across
+    all sections.
+- term: Category Feed
+  definition: An RSS feed scoped to a single section (news, sports,
+    business, opinion, entertainment, food, life, health, real-estate).
+- term: Sitemap Index
+  definition: XML document at `/arc/outboundfeeds/sitemap-index-2/`
+    enumerating hundreds of daily child URL sitemaps.
+- term: URL Sitemap
+  definition: XML sitemap listing inquirer.com article URLs with lastmod,
+    changefreq, priority, and image metadata.
+- term: Google News Sitemap
+  definition: Sitemap at `/arc/outboundfeeds/news-sitemap/` using the
+    sitemap-news namespace for the most recent articles.
+- term: Author Sitemap
+  definition: Sitemap of Inquirer.com author/byline landing pages.
+- term: Restaurant Sitemap
+  definition: Sitemap of Inquirer.com restaurant review and guide pages.
+- term: Dewey
+  definition: AI-powered librarian project from The Philadelphia Inquirer
+    that searches the Inquirer archive with cited LLM responses.
+- term: Dewey MCP
+  definition: Containerized FastMCP server that exposes a single
+    `search_archive` tool over the Inquirer archive via Azure AI Search.
+- term: search_archive
+  definition: The MCP tool exposed by Dewey MCP; accepts a `search_text`
+    string, optional `filters`, and a `limit` (max 20) and returns ranked
+    article chunks.
+- term: Article Chunk
+  definition: A retrievable passage of an Inquirer article indexed in
+    Azure AI Search and returned by Dewey with a relevance score.
+- term: Azure AI Search
+  definition: The vector and keyword search backend that Dewey indexes
+    Inquirer articles into.
+- term: Lenfest Fellowship
+  definition: The fellowship program through which the Dewey project was
+    incubated, with support from Microsoft and OpenAI.
+- term: phillymedia
+  definition: The Inquirer's GitHub organization
+    (`github.com/phillymedia`); hosts Dewey MCP, Dewey AI, Vestapol, the
+    Data Engineering Handbook, and other newsroom tools.
+- term: Vestapol
+  definition: Open-source Python package from phillymedia that loads web
+    data and registers external SQL tables for ad-hoc analytics.
+- term: Pulitzer Prizes
+  definition: The Philadelphia Inquirer has won 20 Pulitzer Prizes as of
+    2020.
+- term: Print Circulation
+  definition: Approximately 32,400 average print copies (per Wikipedia).
+- term: Digital Circulation
+  definition: Approximately 118,000 digital subscribers (per Wikipedia).
+- term: Newsroom
+  definition: Approximately 225 newsroom employees as of February 2021
+    (per Wikipedia).

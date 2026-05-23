@@ -1,0 +1,34 @@
+name: The Philadelphia Inquirer FinOps Profile
+description: >-
+  The Philadelphia Inquirer has no developer-API billing surface. There is no
+  metered API, no usage-based pricing, no API marketplace listing, no API
+  key, and therefore no FOCUS-style cost dataset to map. This file records
+  the absence and points at the consumer subscription surface (which is the
+  Inquirer's actual revenue surface) and at the Lenfest Institute philanthropy
+  channel.
+specVersion: '0.1'
+provider:
+  id: philadelphia-inquirer
+  name: The Philadelphia Inquirer
+modified: '2026-05-23'
+billingModel: none-for-developers
+focusAlignment:
+  applicable: false
+  reason: No metered API service; no charge records to emit.
+revenueSurfaces:
+- name: Consumer Subscriptions
+  url: https://www.inquirer.com/subscribe/
+  description: Digital, print, and bundled reader subscriptions for
+    inquirer.com and the printed paper.
+- name: Advertising
+  description: Display and sponsored content on inquirer.com and in print.
+- name: Philanthropy
+  url: https://www.lenfestinstitute.org/
+  description: The Lenfest Institute (nonprofit owner) funds local-journalism
+    initiatives via grants.
+selfHostedCosts:
+- name: Dewey MCP
+  description: Operators who self-host Dewey MCP pay Azure for Azure AI
+    Search, Azure OpenAI, and Azure Blob Storage. Those costs accrue to the
+    operator, not to The Philadelphia Inquirer.
+  costSurface: Azure Marketplace

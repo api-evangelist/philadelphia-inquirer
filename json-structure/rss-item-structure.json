@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/draft/01/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/philadelphia-inquirer/main/json-structure/rss-item-structure.json",
+  "title": "Philadelphia Inquirer RSS Item Structure",
+  "description": "Structural representation of a Philadelphia Inquirer RSS item.",
+  "type": "object",
+  "name": "RssItem",
+  "fields": [
+    { "name": "title", "type": "string", "required": true },
+    { "name": "link", "type": "string", "format": "uri", "required": true },
+    { "name": "guid", "type": "string" },
+    { "name": "description", "type": "string" },
+    { "name": "author", "type": "string" },
+    { "name": "categories", "type": "array", "items": { "type": "string" } },
+    { "name": "pubDate", "type": "string", "format": "date-time", "required": true },
+    { "name": "content_encoded", "type": "string" }
+  ]
+}

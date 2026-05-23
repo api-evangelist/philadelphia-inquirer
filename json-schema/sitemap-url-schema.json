@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/philadelphia-inquirer/main/json-schema/sitemap-url-schema.json",
+  "title": "Philadelphia Inquirer Sitemap URL",
+  "description": "A single URL entry in an Inquirer.com XML sitemap.",
+  "type": "object",
+  "properties": {
+    "loc": {
+      "type": "string",
+      "format": "uri"
+    },
+    "lastmod": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "changefreq": {
+      "type": "string",
+      "enum": ["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"]
+    },
+    "priority": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "loc": { "type": "string", "format": "uri" },
+        "caption": { "type": "string" }
+      }
+    }
+  },
+  "required": ["loc"]
+}

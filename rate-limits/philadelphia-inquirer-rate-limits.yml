@@ -1,0 +1,43 @@
+name: The Philadelphia Inquirer Rate Limits
+description: >-
+  The Philadelphia Inquirer does not publish per-IP or per-key rate limits
+  for its public RSS feeds and sitemaps. The site's robots.txt restricts a
+  small set of paths (search results, betting, light pages, wires, previews,
+  systest folders) but does not declare a Crawl-delay or rate ceiling.
+  Consumers should treat the RSS feeds as hourly-refreshing and avoid
+  aggressive polling.
+specVersion: '0.1'
+provider:
+  id: philadelphia-inquirer
+  name: The Philadelphia Inquirer
+modified: '2026-05-23'
+policies:
+- id: rss-polling-guidance
+  scope: rss-feeds
+  type: guidance
+  description: Feeds rebuild approximately hourly; clients should poll no
+    more often than every 15 minutes per feed and honor HTTP caching headers.
+  documented: false
+- id: sitemap-crawl-guidance
+  scope: sitemaps
+  type: guidance
+  description: Sitemaps are large; clients should respect HTTP caching and
+    conditional GETs. No declared Crawl-delay in robots.txt.
+  documented: false
+- id: dewey-mcp-self-hosted
+  scope: dewey-mcp
+  type: self-hosted
+  description: Dewey MCP runs as a self-hosted FastMCP server; rate limits
+    are determined by the deployer's Azure AI Search tier and the operator's
+    own configuration, not by The Philadelphia Inquirer.
+  documented: false
+robotsTxt:
+  url: https://www.inquirer.com/robots.txt
+  disallow:
+  - /light/
+  - /search
+  - /sports/betting/
+  - /wires/
+  - /Preview/
+  - /zzz-systest/
+  - /zzz_systest/

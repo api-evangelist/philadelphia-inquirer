@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/philadelphia-inquirer/main/json-schema/rss-item-schema.json",
+  "title": "Philadelphia Inquirer RSS Item",
+  "description": "A single Inquirer.com article as exposed in an Arc XP RSS 2.0 channel item.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Headline of the article."
+    },
+    "link": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical URL of the article on inquirer.com."
+    },
+    "guid": {
+      "type": "string",
+      "description": "Globally unique identifier for the item."
+    },
+    "description": {
+      "type": "string",
+      "description": "Article summary or dek."
+    },
+    "author": {
+      "type": "string",
+      "description": "Byline."
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Section and topic tags."
+    },
+    "pubDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Publication timestamp (RFC 822)."
+    },
+    "content_encoded": {
+      "type": "string",
+      "description": "Full article HTML body in CDATA."
+    }
+  },
+  "required": ["title", "link", "pubDate"]
+}
