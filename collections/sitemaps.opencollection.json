@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Philadelphia Inquirer Sitemaps",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sitemaps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Sitemap Index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.inquirer.com/arc/outboundfeeds/sitemap-index-2/",
+            "params": [
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query",
+                "description": "Output serialization. Must be `xml` for sitemaps."
+              }
+            ]
+          },
+          "docs": "Returns a sitemap index listing daily child sitemaps for roughly two years of inquirer.com content."
+        },
+        {
+          "info": {
+            "name": "Get Latest URL Sitemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.inquirer.com/arc/outboundfeeds/sitemap/latest/",
+            "params": [
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query",
+                "description": "Output serialization. Must be `xml` for sitemaps."
+              }
+            ]
+          },
+          "docs": "Returns the most recent URL sitemap of articles."
+        },
+        {
+          "info": {
+            "name": "Get Daily URL Sitemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.inquirer.com/arc/outboundfeeds/sitemap/:date/",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "Calendar day in YYYY-MM-DD format."
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query",
+                "description": "Output serialization. Must be `xml` for sitemaps."
+              }
+            ]
+          },
+          "docs": "Returns the URL sitemap for the specified calendar day."
+        },
+        {
+          "info": {
+            "name": "Get Google News Sitemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.inquirer.com/arc/outboundfeeds/news-sitemap/",
+            "params": [
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query",
+                "description": "Output serialization. Must be `xml` for sitemaps."
+              }
+            ]
+          },
+          "docs": "Returns the Google News sitemap of the most recent Inquirer.com articles, using the sitemap-news namespace."
+        },
+        {
+          "info": {
+            "name": "Get Author Sitemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.inquirer.com/arc/outboundfeeds/sitemap-author-page/"
+          },
+          "docs": "Returns a sitemap of Inquirer.com author pages."
+        },
+        {
+          "info": {
+            "name": "Get Restaurant Sitemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.inquirer.com/arc/outboundfeeds/sitemap-restaurant-page/"
+          },
+          "docs": "Returns a sitemap of Inquirer.com restaurant review and guide pages."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

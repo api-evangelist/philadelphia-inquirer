@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Philadelphia Inquirer RSS Feeds",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Feeds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Site-Wide RSS Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.inquirer.com/arc/outboundfeeds/rss/",
+            "params": [
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query",
+                "description": "Output serialization. Must be `xml` for RSS."
+              }
+            ]
+          },
+          "docs": "Returns the top-level Inquirer.com RSS 2.0 feed of the most recent articles across all sections."
+        },
+        {
+          "info": {
+            "name": "Get Category RSS Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.inquirer.com/arc/outboundfeeds/rss/category/:category/",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "path",
+                "description": "Section slug."
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query",
+                "description": "Output serialization. Must be `xml` for RSS."
+              }
+            ]
+          },
+          "docs": "Returns an RSS 2.0 feed scoped to a single Inquirer.com section such as news, sports, business, opinion, entertainment, food, life, health, or real-estate."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

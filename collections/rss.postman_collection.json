@@ -1,0 +1,275 @@
+{
+  "item": [
+    {
+      "id": "67284b52-f086-4e45-b87d-30f16a3cd52e",
+      "name": "Feeds",
+      "description": {
+        "content": "Site-wide and per-category RSS feeds.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a31c4b2b-36a4-4acf-af0a-97ff17a28ad0",
+          "name": "Get Site-Wide RSS Feed",
+          "request": {
+            "name": "Get Site-Wide RSS Feed",
+            "description": {
+              "content": "Returns the top-level Inquirer.com RSS 2.0 feed of the most recent articles across all sections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "rss",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "xml",
+                  "description": "Output serialization. Must be `xml` for RSS."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/rss+xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34e5750f-372f-43ea-a634-b8d6fe1611c9",
+              "name": "RSS 2.0 XML document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "rss",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/rss+xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rss+xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <title>Inquirer.com</title>\n  <link>https://www.inquirer.com</link>\n  <description>(string)</description>\n  <lastBuildDate>(string)</lastBuildDate>\n  <ttl>60</ttl>\n  <items>\n    <title>(string)</title>\n    <link>(string)</link>\n    <description>(string)</description>\n    <author>(string)</author>\n    <category>(string)</category>\n    <category>(string)</category>\n    <pubDate>(string)</pubDate>\n    <guid>(string)</guid>\n    <content_encoded>(string)</content_encoded>\n  </items>\n  <items>\n    <title>(string)</title>\n    <link>(string)</link>\n    <description>(string)</description>\n    <author>(string)</author>\n    <category>(string)</category>\n    <category>(string)</category>\n    <pubDate>(string)</pubDate>\n    <guid>(string)</guid>\n    <content_encoded>(string)</content_encoded>\n  </items>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76d30a60-940f-42fd-b833-0f0c1684ec4f",
+          "name": "Get Category RSS Feed",
+          "request": {
+            "name": "Get Category RSS Feed",
+            "description": {
+              "content": "Returns an RSS 2.0 feed scoped to a single Inquirer.com section such as news, sports, business, opinion, entertainment, food, life, health, or real-estate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "rss",
+                "category",
+                ":category",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "xml",
+                  "description": "Output serialization. Must be `xml` for RSS."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "category",
+                  "description": "(Required) Section slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/rss+xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "590fdaf2-1206-465e-bcb3-e835b84311fd",
+              "name": "RSS 2.0 XML document scoped to the requested category.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "rss",
+                    "category",
+                    ":category",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "category",
+                      "description": "(Required) Section slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/rss+xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rss+xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <title>Inquirer.com</title>\n  <link>https://www.inquirer.com</link>\n  <description>(string)</description>\n  <lastBuildDate>(string)</lastBuildDate>\n  <ttl>60</ttl>\n  <items>\n    <title>(string)</title>\n    <link>(string)</link>\n    <description>(string)</description>\n    <author>(string)</author>\n    <category>(string)</category>\n    <category>(string)</category>\n    <pubDate>(string)</pubDate>\n    <guid>(string)</guid>\n    <content_encoded>(string)</content_encoded>\n  </items>\n  <items>\n    <title>(string)</title>\n    <link>(string)</link>\n    <description>(string)</description>\n    <author>(string)</author>\n    <category>(string)</category>\n    <category>(string)</category>\n    <pubDate>(string)</pubDate>\n    <guid>(string)</guid>\n    <content_encoded>(string)</content_encoded>\n  </items>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "816cf145-a2cb-4c4f-9e07-4e4a4f4a09b3",
+              "name": "Unknown category slug.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "rss",
+                    "category",
+                    ":category",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "category",
+                      "description": "(Required) Section slug."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.inquirer.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b2fc818e-dd01-4092-ad8c-7d4fd9590c98",
+    "name": "The Philadelphia Inquirer RSS Feeds",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public RSS 2.0 feeds for The Philadelphia Inquirer, served from Arc XP outbound feeds. A site-wide feed and per-category feeds (news, sports, business, opinion, entertainment, etc.) deliver up to 20 recent articles with title, link, description, publication date, and full encoded HTML body. Feeds are rebuilt approximately hourly. No authentication is required.\n\nContact Support:\n Name: The Philadelphia Inquirer",
+      "type": "text/plain"
+    }
+  }
+}
