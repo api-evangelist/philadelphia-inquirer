@@ -94,6 +94,8 @@ apis:
   - type: OpenAPI
     url: openapi/dewey-mcp-openapi.yml
 common:
+- type: DomainSecurity
+  url: security/philadelphia-inquirer-domain-security.yml
 - type: Website
   url: https://www.inquirer.com
 - type: About
@@ -213,6 +215,8 @@ common:
   url: https://www.facebook.com/philly.com
 - type: Instagram
   url: https://www.instagram.com/phillyinquirer/
+- url: https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
