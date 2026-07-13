@@ -1,0 +1,14 @@
+{
+  "repo": "philadelphia-inquirer",
+  "feeds": [
+    {
+      "source": "https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml",
+      "feed_url": "https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml",
+      "title": "",
+      "saved": 10,
+      "method": "feed"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 83
+}
