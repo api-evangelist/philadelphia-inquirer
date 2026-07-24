@@ -1,21 +1,15 @@
 openapi: 3.1.0
 info:
-  title: The Philadelphia Inquirer Sitemaps
-  version: '1.0'
-  summary: XML sitemaps and Google News sitemap for Inquirer.com.
-  description: >-
-    XML sitemap endpoints published by Arc XP for The Philadelphia Inquirer.
-    A sitemap index lists hundreds of daily child sitemaps spanning roughly
-    two years of inquirer.com URLs. A dedicated Google News sitemap exposes
-    the most recent articles using the `http://www.google.com/schemas/sitemap-news/0.9`
-    namespace. Additional sitemaps cover authors and restaurant pages. No
-    authentication is required.
+  title: Dewey MCP Feeds Sitemaps API
+  version: '0.1'
+  summary: FastMCP server exposing read-only search over the Inquirer archive.
+  description: Dewey MCP is a containerized FastMCP server for read-only search over a news archive backed by Azure AI Search. It exposes a single MCP tool, `search_archive`, that accepts a search query plus optional date and author filters and returns ranked article chunks with metadata. The server is open source under `phillymedia/dewey-mcp` and is the protocol surface for the broader Dewey AI librarian project (Lenfest Institute fellowship, supported by Microsoft and OpenAI). This OpenAPI describes the server's HTTP envelope (MCP protocol endpoint, liveness, and readiness probes); the MCP tool itself is described in `components.schemas`.
   contact:
-    name: The Philadelphia Inquirer
-    url: https://www.inquirer.com
+    name: Dewey MCP
+    url: https://github.com/phillymedia/dewey-mcp
 servers:
-- url: https://www.inquirer.com
-  description: Production
+- url: http://127.0.0.1:8000
+  description: Default local server (configurable via MCP_HOST and MCP_PORT)
 tags:
 - name: Sitemaps
   description: XML sitemaps and sitemap indexes.
@@ -24,8 +18,7 @@ paths:
     get:
       operationId: getSitemapIndex
       summary: Get Sitemap Index
-      description: Returns a sitemap index listing daily child sitemaps for
-        roughly two years of inquirer.com content.
+      description: Returns a sitemap index listing daily child sitemaps for roughly two years of inquirer.com content.
       tags:
       - Sitemaps
       parameters:
@@ -83,8 +76,7 @@ paths:
     get:
       operationId: getNewsSitemap
       summary: Get Google News Sitemap
-      description: Returns the Google News sitemap of the most recent
-        Inquirer.com articles, using the sitemap-news namespace.
+      description: Returns the Google News sitemap of the most recent Inquirer.com articles, using the sitemap-news namespace.
       tags:
       - Sitemaps
       parameters:
@@ -114,8 +106,7 @@ paths:
     get:
       operationId: getRestaurantSitemap
       summary: Get Restaurant Sitemap
-      description: Returns a sitemap of Inquirer.com restaurant review and
-        guide pages.
+      description: Returns a sitemap of Inquirer.com restaurant review and guide pages.
       tags:
       - Sitemaps
       responses:
@@ -126,33 +117,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UrlSet'
 components:
-  parameters:
-    outputType:
-      name: outputType
-      in: query
-      required: false
-      description: Output serialization. Must be `xml` for sitemaps.
-      schema:
-        type: string
-        enum:
-        - xml
-        default: xml
   schemas:
-    SitemapIndex:
-      type: object
-      description: A sitemap index pointing at child sitemaps.
-      properties:
-        sitemaps:
-          type: array
-          items:
-            type: object
-            properties:
-              loc:
-                type: string
-                format: uri
-              lastmod:
-                type: string
-                format: date
     UrlSet:
       type: object
       description: A sitemap URL set.
@@ -221,3 +186,29 @@ components:
                     format: date-time
                   title:
                     type: string
+    SitemapIndex:
+      type: object
+      description: A sitemap index pointing at child sitemaps.
+      properties:
+        sitemaps:
+          type: array
+          items:
+            type: object
+            properties:
+              loc:
+                type: string
+                format: uri
+              lastmod:
+                type: string
+                format: date
+  parameters:
+    outputType:
+      name: outputType
+      in: query
+      required: false
+      description: Output serialization. Must be `xml` for sitemaps.
+      schema:
+        type: string
+        enum:
+        - xml
+        default: xml

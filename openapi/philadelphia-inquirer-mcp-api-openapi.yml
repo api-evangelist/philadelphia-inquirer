@@ -1,0 +1,37 @@
+openapi: 3.1.0
+info:
+  title: Dewey Feeds MCP API
+  version: '0.1'
+  summary: FastMCP server exposing read-only search over the Inquirer archive.
+  description: Dewey MCP is a containerized FastMCP server for read-only search over a news archive backed by Azure AI Search. It exposes a single MCP tool, `search_archive`, that accepts a search query plus optional date and author filters and returns ranked article chunks with metadata. The server is open source under `phillymedia/dewey-mcp` and is the protocol surface for the broader Dewey AI librarian project (Lenfest Institute fellowship, supported by Microsoft and OpenAI). This OpenAPI describes the server's HTTP envelope (MCP protocol endpoint, liveness, and readiness probes); the MCP tool itself is described in `components.schemas`.
+  contact:
+    name: Dewey MCP
+    url: https://github.com/phillymedia/dewey-mcp
+servers:
+- url: http://127.0.0.1:8000
+  description: Default local server (configurable via MCP_HOST and MCP_PORT)
+tags:
+- name: MCP
+  description: Model Context Protocol surface.
+paths:
+  /mcp:
+    post:
+      operationId: postMcp
+      summary: Invoke MCP Protocol
+      description: MCP protocol endpoint. Path is configurable via `MCP_PATH` (default `/mcp`). Exposes the `search_archive` tool.
+      tags:
+      - MCP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: MCP JSON-RPC envelope.
+      responses:
+        '200':
+          description: MCP JSON-RPC response envelope.
+          content:
+            application/json:
+              schema:
+                type: object

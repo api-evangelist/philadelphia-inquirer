@@ -1,24 +1,15 @@
 openapi: 3.1.0
 info:
-  title: The Philadelphia Inquirer RSS Feeds
-  version: '1.0'
-  summary: Arc XP-generated RSS 2.0 feeds for Inquirer.com.
-  description: >-
-    Public RSS 2.0 feeds for The Philadelphia Inquirer, served from Arc XP
-    outbound feeds. A site-wide feed and per-category feeds (news, sports,
-    business, opinion, entertainment, etc.) deliver up to 20 recent articles
-    with title, link, description, publication date, and full encoded HTML
-    body. Feeds are rebuilt approximately hourly. No authentication is
-    required.
+  title: Dewey MCP Feeds API
+  version: '0.1'
+  summary: FastMCP server exposing read-only search over the Inquirer archive.
+  description: Dewey MCP is a containerized FastMCP server for read-only search over a news archive backed by Azure AI Search. It exposes a single MCP tool, `search_archive`, that accepts a search query plus optional date and author filters and returns ranked article chunks with metadata. The server is open source under `phillymedia/dewey-mcp` and is the protocol surface for the broader Dewey AI librarian project (Lenfest Institute fellowship, supported by Microsoft and OpenAI). This OpenAPI describes the server's HTTP envelope (MCP protocol endpoint, liveness, and readiness probes); the MCP tool itself is described in `components.schemas`.
   contact:
-    name: The Philadelphia Inquirer
-    url: https://www.inquirer.com
-  license:
-    name: All rights reserved
-    url: https://www.inquirer.com/site-services/terms-of-use.html
+    name: Dewey MCP
+    url: https://github.com/phillymedia/dewey-mcp
 servers:
-- url: https://www.inquirer.com
-  description: Production
+- url: http://127.0.0.1:8000
+  description: Default local server (configurable via MCP_HOST and MCP_PORT)
 tags:
 - name: Feeds
   description: Site-wide and per-category RSS feeds.
@@ -27,8 +18,7 @@ paths:
     get:
       operationId: getSiteRssFeed
       summary: Get Site-Wide RSS Feed
-      description: Returns the top-level Inquirer.com RSS 2.0 feed of the most
-        recent articles across all sections.
+      description: Returns the top-level Inquirer.com RSS 2.0 feed of the most recent articles across all sections.
       tags:
       - Feeds
       parameters:
@@ -44,9 +34,7 @@ paths:
     get:
       operationId: getCategoryRssFeed
       summary: Get Category RSS Feed
-      description: Returns an RSS 2.0 feed scoped to a single Inquirer.com
-        section such as news, sports, business, opinion, entertainment,
-        food, life, health, or real-estate.
+      description: Returns an RSS 2.0 feed scoped to a single Inquirer.com section such as news, sports, business, opinion, entertainment, food, life, health, or real-estate.
       tags:
       - Feeds
       parameters:
