@@ -11,7 +11,19 @@ description: >-
   Context Protocol server that wraps an Azure AI Search index of the Inquirer
   archive.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/philadelphia-inquirer.png
 tags:
 - News
 - News Media
@@ -30,69 +42,78 @@ created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.19'
 apis:
-- aid: philadelphia-inquirer:rss
-  name: The Philadelphia Inquirer RSS Feeds
-  description: >-
-    Public RSS 2.0 feeds served from Arc XP's outbound feeds for Inquirer.com.
-    A site-wide feed and per-category feeds expose article titles, links,
-    descriptions, publication dates, and encoded article HTML for syndication
-    and aggregation. Feeds are rebuilt hourly.
+- aid: philadelphia-inquirer:philadelphia-inquirer-feeds-api
+  name: The Philadelphia Inquirer Feeds API
+  description: Site-wide and per-category RSS feeds.
   humanURL: https://www.inquirer.com
   baseURL: https://www.inquirer.com/arc/outboundfeeds/rss
   tags:
-  - RSS
-  - News
-  - Syndication
-  - Arc Publishing
+  - Feeds
   properties:
   - type: OpenAPI
-    url: openapi/rss-openapi.yml
+    url: openapi/philadelphia-inquirer-feeds-api-openapi.yml
   - type: Documentation
     url: https://www.inquirer.com
-- aid: philadelphia-inquirer:sitemaps
-  name: The Philadelphia Inquirer Sitemaps
-  description: >-
-    XML sitemaps and a Google News sitemap published by Arc XP. The sitemap
-    index lists daily child sitemaps spanning roughly two years of inquirer.com
-    URLs, with per-URL last-modified, change frequency, priority, and image
-    metadata. A dedicated Google News sitemap exposes the most recent articles
-    using the sitemap-news namespace.
-  humanURL: https://www.inquirer.com/robots.txt
-  baseURL: https://www.inquirer.com/arc/outboundfeeds
-  tags:
-  - Sitemap
-  - News
-  - SEO
-  - Arc Publishing
-  properties:
-  - type: OpenAPI
-    url: openapi/sitemaps-openapi.yml
   - type: Documentation
     url: https://www.inquirer.com/robots.txt
-- aid: philadelphia-inquirer:dewey-mcp
-  name: Dewey MCP
-  description: >-
-    Dewey MCP is a containerized FastMCP server that exposes read-only search
-    over the Inquirer's news archive backed by Azure AI Search. It surfaces a
-    single `search_archive` MCP tool with text query, optional date and author
-    filters, and a configurable result limit (max 20). The server is open
-    source under the `phillymedia/dewey-mcp` repository and is the protocol
-    surface for the broader Dewey AI librarian project, which emerged from a
-    Lenfest Institute fellowship supported by Microsoft and OpenAI.
-  humanURL: https://github.com/phillymedia/dewey-mcp
-  tags:
-  - MCP
-  - AI
-  - Search
-  - Archive
-  - Azure AI Search
-  properties:
   - type: GitHubRepository
     url: https://github.com/phillymedia/dewey-mcp
   - type: Documentation
     url: https://github.com/phillymedia/dewey-mcp#readme
+- aid: philadelphia-inquirer:philadelphia-inquirer-health-api
+  name: The Philadelphia Inquirer Health API
+  description: Liveness and readiness probes.
+  humanURL: https://www.inquirer.com
+  baseURL: https://www.inquirer.com/arc/outboundfeeds/rss
+  tags:
+  - Health
+  properties:
   - type: OpenAPI
-    url: openapi/dewey-mcp-openapi.yml
+    url: openapi/philadelphia-inquirer-health-api-openapi.yml
+  - type: Documentation
+    url: https://www.inquirer.com
+  - type: Documentation
+    url: https://www.inquirer.com/robots.txt
+  - type: GitHubRepository
+    url: https://github.com/phillymedia/dewey-mcp
+  - type: Documentation
+    url: https://github.com/phillymedia/dewey-mcp#readme
+- aid: philadelphia-inquirer:philadelphia-inquirer-mcp-api
+  name: The Philadelphia Inquirer MCP API
+  description: Model Context Protocol surface.
+  humanURL: https://www.inquirer.com
+  baseURL: https://www.inquirer.com/arc/outboundfeeds/rss
+  tags:
+  - MCP
+  properties:
+  - type: OpenAPI
+    url: openapi/philadelphia-inquirer-mcp-api-openapi.yml
+  - type: Documentation
+    url: https://www.inquirer.com
+  - type: Documentation
+    url: https://www.inquirer.com/robots.txt
+  - type: GitHubRepository
+    url: https://github.com/phillymedia/dewey-mcp
+  - type: Documentation
+    url: https://github.com/phillymedia/dewey-mcp#readme
+- aid: philadelphia-inquirer:philadelphia-inquirer-sitemaps-api
+  name: The Philadelphia Inquirer Sitemaps API
+  description: XML sitemaps and sitemap indexes.
+  humanURL: https://www.inquirer.com
+  baseURL: https://www.inquirer.com/arc/outboundfeeds/rss
+  tags:
+  - Sitemaps
+  properties:
+  - type: OpenAPI
+    url: openapi/philadelphia-inquirer-sitemaps-api-openapi.yml
+  - type: Documentation
+    url: https://www.inquirer.com
+  - type: Documentation
+    url: https://www.inquirer.com/robots.txt
+  - type: GitHubRepository
+    url: https://github.com/phillymedia/dewey-mcp
+  - type: Documentation
+    url: https://github.com/phillymedia/dewey-mcp#readme
 common:
 - type: AgenticAccess
   url: agentic-access/philadelphia-inquirer-agentic-access.yml
