@@ -1,0 +1,20 @@
+{
+  "provider": "philadelphia-inquirer",
+  "sources": [
+    "philadelphia-inquirer-feeds-api-openapi.yml",
+    "philadelphia-inquirer-health-api-openapi.yml",
+    "philadelphia-inquirer-mcp-api-openapi.yml",
+    "philadelphia-inquirer-sitemaps-api-openapi.yml"
+  ],
+  "outputs": [
+    "philadelphia-inquirer-feeds-api-openapi.yml",
+    "philadelphia-inquirer-health-api-openapi.yml",
+    "philadelphia-inquirer-mcp-api-openapi.yml",
+    "philadelphia-inquirer-sitemaps-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

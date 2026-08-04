@@ -1,0 +1,223 @@
+openapi: 3.1.0
+info:
+  title: The Philadelphia Inquirer Sitemaps
+  version: '1.0'
+  summary: XML sitemaps and Google News sitemap for Inquirer.com.
+  description: >-
+    XML sitemap endpoints published by Arc XP for The Philadelphia Inquirer.
+    A sitemap index lists hundreds of daily child sitemaps spanning roughly
+    two years of inquirer.com URLs. A dedicated Google News sitemap exposes
+    the most recent articles using the `http://www.google.com/schemas/sitemap-news/0.9`
+    namespace. Additional sitemaps cover authors and restaurant pages. No
+    authentication is required.
+  contact:
+    name: The Philadelphia Inquirer
+    url: https://www.inquirer.com
+servers:
+- url: https://www.inquirer.com
+  description: Production
+tags:
+- name: Sitemaps
+  description: XML sitemaps and sitemap indexes.
+paths:
+  /arc/outboundfeeds/sitemap-index-2/:
+    get:
+      operationId: getSitemapIndex
+      summary: Get Sitemap Index
+      description: Returns a sitemap index listing daily child sitemaps for
+        roughly two years of inquirer.com content.
+      tags:
+      - Sitemaps
+      parameters:
+      - $ref: '#/components/parameters/outputType'
+      responses:
+        '200':
+          description: Sitemap index XML document.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SitemapIndex'
+  /arc/outboundfeeds/sitemap/latest/:
+    get:
+      operationId: getLatestSitemap
+      summary: Get Latest URL Sitemap
+      description: Returns the most recent URL sitemap of articles.
+      tags:
+      - Sitemaps
+      parameters:
+      - $ref: '#/components/parameters/outputType'
+      responses:
+        '200':
+          description: URL sitemap XML document.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UrlSet'
+  /arc/outboundfeeds/sitemap/{date}/:
+    get:
+      operationId: getDailySitemap
+      summary: Get Daily URL Sitemap
+      description: Returns the URL sitemap for the specified calendar day.
+      tags:
+      - Sitemaps
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Calendar day in YYYY-MM-DD format.
+        schema:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          example: 2026-05-22
+      - $ref: '#/components/parameters/outputType'
+      responses:
+        '200':
+          description: URL sitemap XML document.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UrlSet'
+        '404':
+          description: No sitemap for the requested date.
+  /arc/outboundfeeds/news-sitemap/:
+    get:
+      operationId: getNewsSitemap
+      summary: Get Google News Sitemap
+      description: Returns the Google News sitemap of the most recent
+        Inquirer.com articles, using the sitemap-news namespace.
+      tags:
+      - Sitemaps
+      parameters:
+      - $ref: '#/components/parameters/outputType'
+      responses:
+        '200':
+          description: Google News sitemap XML document.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NewsUrlSet'
+  /arc/outboundfeeds/sitemap-author-page/:
+    get:
+      operationId: getAuthorSitemap
+      summary: Get Author Sitemap
+      description: Returns a sitemap of Inquirer.com author pages.
+      tags:
+      - Sitemaps
+      responses:
+        '200':
+          description: Author URL sitemap XML document.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UrlSet'
+  /arc/outboundfeeds/sitemap-restaurant-page/:
+    get:
+      operationId: getRestaurantSitemap
+      summary: Get Restaurant Sitemap
+      description: Returns a sitemap of Inquirer.com restaurant review and
+        guide pages.
+      tags:
+      - Sitemaps
+      responses:
+        '200':
+          description: Restaurant URL sitemap XML document.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UrlSet'
+components:
+  parameters:
+    outputType:
+      name: outputType
+      in: query
+      required: false
+      description: Output serialization. Must be `xml` for sitemaps.
+      schema:
+        type: string
+        enum:
+        - xml
+        default: xml
+  schemas:
+    SitemapIndex:
+      type: object
+      description: A sitemap index pointing at child sitemaps.
+      properties:
+        sitemaps:
+          type: array
+          items:
+            type: object
+            properties:
+              loc:
+                type: string
+                format: uri
+              lastmod:
+                type: string
+                format: date
+    UrlSet:
+      type: object
+      description: A sitemap URL set.
+      properties:
+        urls:
+          type: array
+          items:
+            $ref: '#/components/schemas/SitemapUrl'
+    SitemapUrl:
+      type: object
+      properties:
+        loc:
+          type: string
+          format: uri
+        lastmod:
+          type: string
+          format: date-time
+        changefreq:
+          type: string
+          enum:
+          - always
+          - hourly
+          - daily
+          - weekly
+          - monthly
+          - yearly
+          - never
+        priority:
+          type: number
+          minimum: 0
+          maximum: 1
+        image:
+          type: object
+          properties:
+            loc:
+              type: string
+              format: uri
+            caption:
+              type: string
+    NewsUrlSet:
+      type: object
+      description: A Google News sitemap URL set.
+      properties:
+        urls:
+          type: array
+          items:
+            type: object
+            properties:
+              loc:
+                type: string
+                format: uri
+              news:
+                type: object
+                properties:
+                  publication:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: The Philadelphia Inquirer
+                      language:
+                        type: string
+                        example: en
+                  publication_date:
+                    type: string
+                    format: date-time
+                  title:
+                    type: string

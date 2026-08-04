@@ -1,0 +1,150 @@
+openapi: 3.1.0
+info:
+  title: The Philadelphia Inquirer RSS Feeds
+  version: '1.0'
+  summary: Arc XP-generated RSS 2.0 feeds for Inquirer.com.
+  description: >-
+    Public RSS 2.0 feeds for The Philadelphia Inquirer, served from Arc XP
+    outbound feeds. A site-wide feed and per-category feeds (news, sports,
+    business, opinion, entertainment, etc.) deliver up to 20 recent articles
+    with title, link, description, publication date, and full encoded HTML
+    body. Feeds are rebuilt approximately hourly. No authentication is
+    required.
+  contact:
+    name: The Philadelphia Inquirer
+    url: https://www.inquirer.com
+  license:
+    name: All rights reserved
+    url: https://www.inquirer.com/site-services/terms-of-use.html
+servers:
+- url: https://www.inquirer.com
+  description: Production
+tags:
+- name: Feeds
+  description: Site-wide and per-category RSS feeds.
+paths:
+  /arc/outboundfeeds/rss/:
+    get:
+      operationId: getSiteRssFeed
+      summary: Get Site-Wide RSS Feed
+      description: Returns the top-level Inquirer.com RSS 2.0 feed of the most
+        recent articles across all sections.
+      tags:
+      - Feeds
+      parameters:
+      - $ref: '#/components/parameters/outputType'
+      responses:
+        '200':
+          description: RSS 2.0 XML document.
+          content:
+            application/rss+xml:
+              schema:
+                $ref: '#/components/schemas/RssFeed'
+  /arc/outboundfeeds/rss/category/{category}/:
+    get:
+      operationId: getCategoryRssFeed
+      summary: Get Category RSS Feed
+      description: Returns an RSS 2.0 feed scoped to a single Inquirer.com
+        section such as news, sports, business, opinion, entertainment,
+        food, life, health, or real-estate.
+      tags:
+      - Feeds
+      parameters:
+      - name: category
+        in: path
+        required: true
+        description: Section slug.
+        schema:
+          type: string
+          enum:
+          - news
+          - sports
+          - business
+          - opinion
+          - politics
+          - entertainment
+          - life
+          - food
+          - health
+          - real-estate
+      - $ref: '#/components/parameters/outputType'
+      responses:
+        '200':
+          description: RSS 2.0 XML document scoped to the requested category.
+          content:
+            application/rss+xml:
+              schema:
+                $ref: '#/components/schemas/RssFeed'
+        '404':
+          description: Unknown category slug.
+components:
+  parameters:
+    outputType:
+      name: outputType
+      in: query
+      required: false
+      description: Output serialization. Must be `xml` for RSS.
+      schema:
+        type: string
+        enum:
+        - xml
+        default: xml
+  schemas:
+    RssFeed:
+      type: object
+      description: RSS 2.0 channel with a list of recent articles.
+      properties:
+        title:
+          type: string
+          example: Inquirer.com
+        link:
+          type: string
+          format: uri
+          example: https://www.inquirer.com
+        description:
+          type: string
+        lastBuildDate:
+          type: string
+          format: date-time
+        ttl:
+          type: integer
+          description: Hours until the feed should be refreshed.
+          example: 60
+        items:
+          type: array
+          maxItems: 20
+          items:
+            $ref: '#/components/schemas/RssItem'
+      required:
+      - title
+      - link
+      - items
+    RssItem:
+      type: object
+      description: A single RSS item representing an Inquirer.com article.
+      properties:
+        title:
+          type: string
+        link:
+          type: string
+          format: uri
+        description:
+          type: string
+        author:
+          type: string
+        category:
+          type: array
+          items:
+            type: string
+        pubDate:
+          type: string
+          format: date-time
+        guid:
+          type: string
+        content_encoded:
+          type: string
+          description: Full article HTML body in CDATA.
+      required:
+      - title
+      - link
+      - pubDate
