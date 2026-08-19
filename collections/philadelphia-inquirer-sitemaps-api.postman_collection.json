@@ -1,0 +1,602 @@
+{
+  "item": [
+    {
+      "id": "0192d782-8299-4e08-b8d8-f579f0835f36",
+      "name": "Sitemaps",
+      "description": {
+        "content": "XML sitemaps and sitemap indexes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e87d92dd-f023-4c28-b627-f52e03e1007a",
+          "name": "Get Sitemap Index",
+          "request": {
+            "name": "Get Sitemap Index",
+            "description": {
+              "content": "Returns a sitemap index listing daily child sitemaps for roughly two years of inquirer.com content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "sitemap-index-2",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "xml",
+                  "description": "Output serialization. Must be `xml` for sitemaps."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9c996a1-95f0-4ae3-aad5-e1352936dc31",
+              "name": "Sitemap index XML document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "sitemap-index-2",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <sitemaps>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n  </sitemaps>\n  <sitemaps>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n  </sitemaps>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f64943c-67c4-433d-9249-dbf00644ecfd",
+          "name": "Get Latest URL Sitemap",
+          "request": {
+            "name": "Get Latest URL Sitemap",
+            "description": {
+              "content": "Returns the most recent URL sitemap of articles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "sitemap",
+                "latest",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "xml",
+                  "description": "Output serialization. Must be `xml` for sitemaps."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee71533b-9b7e-4a73-a081-402750b6cf29",
+              "name": "URL sitemap XML document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "sitemap",
+                    "latest",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <urls>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n    <changefreq>(string)</changefreq>\n    <priority>(number)</priority>\n    <image>\n      <loc>(string)</loc>\n      <caption>(string)</caption>\n    </image>\n  </urls>\n  <urls>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n    <changefreq>(string)</changefreq>\n    <priority>(number)</priority>\n    <image>\n      <loc>(string)</loc>\n      <caption>(string)</caption>\n    </image>\n  </urls>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62ceae03-6188-4163-9e62-b207d91f9178",
+          "name": "Get Daily URL Sitemap",
+          "request": {
+            "name": "Get Daily URL Sitemap",
+            "description": {
+              "content": "Returns the URL sitemap for the specified calendar day.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "sitemap",
+                ":date",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "xml",
+                  "description": "Output serialization. Must be `xml` for sitemaps."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) Calendar day in YYYY-MM-DD format."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac749a38-a7f3-4cb8-894e-d7c0e972f701",
+              "name": "URL sitemap XML document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "sitemap",
+                    ":date",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) Calendar day in YYYY-MM-DD format."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <urls>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n    <changefreq>(string)</changefreq>\n    <priority>(number)</priority>\n    <image>\n      <loc>(string)</loc>\n      <caption>(string)</caption>\n    </image>\n  </urls>\n  <urls>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n    <changefreq>(string)</changefreq>\n    <priority>(number)</priority>\n    <image>\n      <loc>(string)</loc>\n      <caption>(string)</caption>\n    </image>\n  </urls>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "e9145891-b353-4e94-87b6-a7236d916f21",
+              "name": "No sitemap for the requested date.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "sitemap",
+                    ":date",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) Calendar day in YYYY-MM-DD format."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c12ca00a-c69b-4dc3-b699-abb0ecf69fde",
+          "name": "Get Google News Sitemap",
+          "request": {
+            "name": "Get Google News Sitemap",
+            "description": {
+              "content": "Returns the Google News sitemap of the most recent Inquirer.com articles, using the sitemap-news namespace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "news-sitemap",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "xml",
+                  "description": "Output serialization. Must be `xml` for sitemaps."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7c72e50-354b-495d-8795-b5c24e13fda9",
+              "name": "Google News sitemap XML document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "news-sitemap",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <urls>\n    <loc>(string)</loc>\n    <news>\n      <publication>\n        <name>The Philadelphia Inquirer</name>\n        <language>en</language>\n      </publication>\n      <publication_date>(string)</publication_date>\n      <title>(string)</title>\n    </news>\n  </urls>\n  <urls>\n    <loc>(string)</loc>\n    <news>\n      <publication>\n        <name>The Philadelphia Inquirer</name>\n        <language>en</language>\n      </publication>\n      <publication_date>(string)</publication_date>\n      <title>(string)</title>\n    </news>\n  </urls>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d1c08da-46fb-47c8-bb00-7cb692c1647c",
+          "name": "Get Author Sitemap",
+          "request": {
+            "name": "Get Author Sitemap",
+            "description": {
+              "content": "Returns a sitemap of Inquirer.com author pages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "sitemap-author-page",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "826c6bbe-25be-4a5a-98a4-09b5e999af72",
+              "name": "Author URL sitemap XML document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "sitemap-author-page",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <urls>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n    <changefreq>(string)</changefreq>\n    <priority>(number)</priority>\n    <image>\n      <loc>(string)</loc>\n      <caption>(string)</caption>\n    </image>\n  </urls>\n  <urls>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n    <changefreq>(string)</changefreq>\n    <priority>(number)</priority>\n    <image>\n      <loc>(string)</loc>\n      <caption>(string)</caption>\n    </image>\n  </urls>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9814fec-4820-4803-b776-ecb1a9af1ee7",
+          "name": "Get Restaurant Sitemap",
+          "request": {
+            "name": "Get Restaurant Sitemap",
+            "description": {
+              "content": "Returns a sitemap of Inquirer.com restaurant review and guide pages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "sitemap-restaurant-page",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd063e6a-3785-4823-9747-db884714c22a",
+              "name": "Restaurant URL sitemap XML document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "sitemap-restaurant-page",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <urls>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n    <changefreq>(string)</changefreq>\n    <priority>(number)</priority>\n    <image>\n      <loc>(string)</loc>\n      <caption>(string)</caption>\n    </image>\n  </urls>\n  <urls>\n    <loc>(string)</loc>\n    <lastmod>(string)</lastmod>\n    <changefreq>(string)</changefreq>\n    <priority>(number)</priority>\n    <image>\n      <loc>(string)</loc>\n      <caption>(string)</caption>\n    </image>\n  </urls>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://127.0.0.1:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "411fd12c-498f-49c9-a1f2-5e9b723b7f83",
+    "name": "Dewey MCP Feeds Sitemaps API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dewey MCP is a containerized FastMCP server for read-only search over a news archive backed by Azure AI Search. It exposes a single MCP tool, `search_archive`, that accepts a search query plus optional date and author filters and returns ranked article chunks with metadata. The server is open source under `phillymedia/dewey-mcp` and is the protocol surface for the broader Dewey AI librarian project (Lenfest Institute fellowship, supported by Microsoft and OpenAI). This OpenAPI describes the server's HTTP envelope (MCP protocol endpoint, liveness, and readiness probes); the MCP tool itself is described in `components.schemas`.\n\nContact Support:\n Name: Dewey MCP",
+      "type": "text/plain"
+    }
+  }
+}

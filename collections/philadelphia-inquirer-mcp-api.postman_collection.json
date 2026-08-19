@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "8b4954c4-91b4-42a6-8955-60537f2b7c08",
+      "name": "MCP",
+      "description": {
+        "content": "Model Context Protocol surface.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5aef9b2b-29b6-4ca1-97db-ab9d0b47f658",
+          "name": "Invoke MCP Protocol",
+          "request": {
+            "name": "Invoke MCP Protocol",
+            "description": {
+              "content": "MCP protocol endpoint. Path is configurable via `MCP_PATH` (default `/mcp`). Exposes the `search_archive` tool.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mcp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70b3b1f4-47c3-4ed8-9cfe-60132042c592",
+              "name": "MCP JSON-RPC response envelope.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mcp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://127.0.0.1:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a997ac46-77ed-488b-9e9c-23297da49876",
+    "name": "Dewey Feeds MCP API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dewey MCP is a containerized FastMCP server for read-only search over a news archive backed by Azure AI Search. It exposes a single MCP tool, `search_archive`, that accepts a search query plus optional date and author filters and returns ranked article chunks with metadata. The server is open source under `phillymedia/dewey-mcp` and is the protocol surface for the broader Dewey AI librarian project (Lenfest Institute fellowship, supported by Microsoft and OpenAI). This OpenAPI describes the server's HTTP envelope (MCP protocol endpoint, liveness, and readiness probes); the MCP tool itself is described in `components.schemas`.\n\nContact Support:\n Name: Dewey MCP",
+      "type": "text/plain"
+    }
+  }
+}

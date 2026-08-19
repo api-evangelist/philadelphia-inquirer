@@ -1,0 +1,275 @@
+{
+  "item": [
+    {
+      "id": "be76c207-b2a8-4efa-80c4-25390ce8f0c5",
+      "name": "Feeds",
+      "description": {
+        "content": "Site-wide and per-category RSS feeds.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e7b82cdb-f977-48d9-9fb2-3d1ac6e7f08c",
+          "name": "Get Site-Wide RSS Feed",
+          "request": {
+            "name": "Get Site-Wide RSS Feed",
+            "description": {
+              "content": "Returns the top-level Inquirer.com RSS 2.0 feed of the most recent articles across all sections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "rss",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "xml",
+                  "description": "Output serialization. Must be `xml` for RSS."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/rss+xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02a11d41-c560-4c63-818a-9ae27928c242",
+              "name": "RSS 2.0 XML document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "rss",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/rss+xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rss+xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <title>Inquirer.com</title>\n  <link>https://www.inquirer.com</link>\n  <description>(string)</description>\n  <lastBuildDate>(string)</lastBuildDate>\n  <ttl>60</ttl>\n  <items>\n    <title>(string)</title>\n    <link>(string)</link>\n    <description>(string)</description>\n    <author>(string)</author>\n    <category>(string)</category>\n    <category>(string)</category>\n    <pubDate>(string)</pubDate>\n    <guid>(string)</guid>\n    <content_encoded>(string)</content_encoded>\n  </items>\n  <items>\n    <title>(string)</title>\n    <link>(string)</link>\n    <description>(string)</description>\n    <author>(string)</author>\n    <category>(string)</category>\n    <category>(string)</category>\n    <pubDate>(string)</pubDate>\n    <guid>(string)</guid>\n    <content_encoded>(string)</content_encoded>\n  </items>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db406dc8-6d66-46ff-ba32-d939bef6a11d",
+          "name": "Get Category RSS Feed",
+          "request": {
+            "name": "Get Category RSS Feed",
+            "description": {
+              "content": "Returns an RSS 2.0 feed scoped to a single Inquirer.com section such as news, sports, business, opinion, entertainment, food, life, health, or real-estate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arc",
+                "outboundfeeds",
+                "rss",
+                "category",
+                ":category",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "xml",
+                  "description": "Output serialization. Must be `xml` for RSS."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "category",
+                  "description": "(Required) Section slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/rss+xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96484407-dd8e-449b-81b6-da3d692fdf28",
+              "name": "RSS 2.0 XML document scoped to the requested category.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "rss",
+                    "category",
+                    ":category",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "category",
+                      "description": "(Required) Section slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/rss+xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rss+xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <title>Inquirer.com</title>\n  <link>https://www.inquirer.com</link>\n  <description>(string)</description>\n  <lastBuildDate>(string)</lastBuildDate>\n  <ttl>60</ttl>\n  <items>\n    <title>(string)</title>\n    <link>(string)</link>\n    <description>(string)</description>\n    <author>(string)</author>\n    <category>(string)</category>\n    <category>(string)</category>\n    <pubDate>(string)</pubDate>\n    <guid>(string)</guid>\n    <content_encoded>(string)</content_encoded>\n  </items>\n  <items>\n    <title>(string)</title>\n    <link>(string)</link>\n    <description>(string)</description>\n    <author>(string)</author>\n    <category>(string)</category>\n    <category>(string)</category>\n    <pubDate>(string)</pubDate>\n    <guid>(string)</guid>\n    <content_encoded>(string)</content_encoded>\n  </items>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "01fc124b-8807-43da-88a0-653f4fed1ae8",
+              "name": "Unknown category slug.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arc",
+                    "outboundfeeds",
+                    "rss",
+                    "category",
+                    ":category",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "outputType",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "category",
+                      "description": "(Required) Section slug."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://127.0.0.1:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5b1f3f7d-81a7-4081-b7fc-25798c3b318b",
+    "name": "Dewey MCP Feeds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dewey MCP is a containerized FastMCP server for read-only search over a news archive backed by Azure AI Search. It exposes a single MCP tool, `search_archive`, that accepts a search query plus optional date and author filters and returns ranked article chunks with metadata. The server is open source under `phillymedia/dewey-mcp` and is the protocol surface for the broader Dewey AI librarian project (Lenfest Institute fellowship, supported by Microsoft and OpenAI). This OpenAPI describes the server's HTTP envelope (MCP protocol endpoint, liveness, and readiness probes); the MCP tool itself is described in `components.schemas`.\n\nContact Support:\n Name: Dewey MCP",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dewey MCP Feeds Health API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Liveness Probe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://127.0.0.1:8000/livez"
+          },
+          "docs": "Returns process liveness status."
+        },
+        {
+          "info": {
+            "name": "Get Readiness Probe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://127.0.0.1:8000/readyz"
+          },
+          "docs": "Returns readiness status; ready when the configured Azure AI Search index is reachable."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

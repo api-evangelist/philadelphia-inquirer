@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dewey Feeds MCP API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MCP",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Invoke MCP Protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://127.0.0.1:8000/mcp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "MCP protocol endpoint. Path is configurable via `MCP_PATH` (default `/mcp`). Exposes the `search_archive` tool."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
