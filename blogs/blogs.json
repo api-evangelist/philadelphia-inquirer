@@ -5,10 +5,10 @@
       "source": "https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml",
       "feed_url": "https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml",
       "title": "",
-      "saved": 49,
+      "saved": 10,
       "method": "feed"
     }
   ],
-  "fetched": "2026-08-15T12:11:08Z",
-  "post_count": 393
+  "fetched": "2026-08-22T20:20:02Z",
+  "post_count": 451
 }
