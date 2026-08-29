@@ -11,6 +11,18 @@ description: >-
   Context Protocol server that wraps an Azure AI Search index of the Inquirer
   archive.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
@@ -117,6 +129,10 @@ apis:
   - type: Documentation
     url: https://github.com/phillymedia/dewey-mcp#readme
 common:
+- type: IssueTracker
+  url: https://github.com/phillymedia/dewey-mcp/issues
+- type: ContributionGuide
+  url: https://github.com/phillymedia/dewey-mcp/blob/main/docs/contributing.md
 - type: AgenticAccess
   url: agentic-access/philadelphia-inquirer-agentic-access.yml
 - type: DomainSecurity
