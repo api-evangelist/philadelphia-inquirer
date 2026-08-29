@@ -1,20 +1,29 @@
 {
   "provider": "philadelphia-inquirer",
   "sources": [
-    "philadelphia-inquirer-feeds-api-openapi.yml",
-    "philadelphia-inquirer-health-api-openapi.yml",
-    "philadelphia-inquirer-mcp-api-openapi.yml",
-    "philadelphia-inquirer-sitemaps-api-openapi.yml"
+    "_original/dewey-mcp-openapi.yml",
+    "_original/rss-openapi.yml",
+    "_original/sitemaps-openapi.yml"
   ],
   "outputs": [
-    "philadelphia-inquirer-feeds-api-openapi.yml",
     "philadelphia-inquirer-health-api-openapi.yml",
     "philadelphia-inquirer-mcp-api-openapi.yml",
+    "philadelphia-inquirer-feeds-api-openapi.yml",
     "philadelphia-inquirer-sitemaps-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "dewey-mcp-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "rss-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sitemaps-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "philadelphia-inquirer-feeds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "philadelphia-inquirer-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "philadelphia-inquirer-mcp-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "philadelphia-inquirer-sitemaps-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dewey Feeds MCP API
+  title: Dewey MCP API
   version: '0.1'
   summary: FastMCP server exposing read-only search over the Inquirer archive.
   description: Dewey MCP is a containerized FastMCP server for read-only search over a news archive backed by Azure AI Search. It exposes a single MCP tool, `search_archive`, that accepts a search query plus optional date and author filters and returns ranked article chunks with metadata. The server is open source under `phillymedia/dewey-mcp` and is the protocol surface for the broader Dewey AI librarian project (Lenfest Institute fellowship, supported by Microsoft and OpenAI). This OpenAPI describes the server's HTTP envelope (MCP protocol endpoint, liveness, and readiness probes); the MCP tool itself is described in `components.schemas`.
