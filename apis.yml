@@ -114,7 +114,7 @@ apis:
   humanURL: https://www.inquirer.com
   baseURL: https://www.inquirer.com/arc/outboundfeeds/rss
   tags:
-  - Sitemap
+  - Sitemaps
   tags_raw:
   - Sitemaps
   properties:
