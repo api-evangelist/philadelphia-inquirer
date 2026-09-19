@@ -60,6 +60,8 @@ apis:
   humanURL: https://www.inquirer.com
   baseURL: https://www.inquirer.com/arc/outboundfeeds/rss
   tags:
+  - Feed
+  tags_raw:
   - Feeds
   properties:
   - type: OpenAPI
