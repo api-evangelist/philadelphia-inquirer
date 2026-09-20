@@ -1,0 +1,7 @@
+---
+title: "AP Top Political News at 4:11 p.m. EDT"
+url: "https://www.inquirer.com/wires/ap/ap-top-political-news-249-pm-edt-20260919.html"
+date: "2026-09-19"
+feed_url: "https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml"
+---
+AP Top Political News at 4:11 p.m. EDT
