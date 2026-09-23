@@ -118,6 +118,21 @@ paths:
                 $ref: '#/components/schemas/UrlSet'
 components:
   schemas:
+    SitemapIndex:
+      type: object
+      description: A sitemap index pointing at child sitemaps.
+      properties:
+        sitemaps:
+          type: array
+          items:
+            type: object
+            properties:
+              loc:
+                type: string
+                format: uri
+              lastmod:
+                type: string
+                format: date
     SitemapUrl:
       type: object
       properties:
@@ -186,21 +201,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SitemapUrl'
-    SitemapIndex:
-      type: object
-      description: A sitemap index pointing at child sitemaps.
-      properties:
-        sitemaps:
-          type: array
-          items:
-            type: object
-            properties:
-              loc:
-                type: string
-                format: uri
-              lastmod:
-                type: string
-                format: date
   parameters:
     outputType:
       name: outputType

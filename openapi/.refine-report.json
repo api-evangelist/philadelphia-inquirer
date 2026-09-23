@@ -18,7 +18,8 @@
     "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "dewey-mcp-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "rss-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "sitemaps-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+    "sitemaps-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "philadelphia-inquirer-feeds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
