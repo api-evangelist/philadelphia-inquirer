@@ -69,6 +69,17 @@ paths:
         '404':
           description: Unknown category slug.
 components:
+  parameters:
+    outputType:
+      name: outputType
+      in: query
+      required: false
+      description: Output serialization. Must be `xml` for RSS.
+      schema:
+        type: string
+        enum:
+        - xml
+        default: xml
   schemas:
     RssItem:
       type: object
@@ -128,14 +139,3 @@ components:
       - title
       - link
       - items
-  parameters:
-    outputType:
-      name: outputType
-      in: query
-      required: false
-      description: Output serialization. Must be `xml` for RSS.
-      schema:
-        type: string
-        enum:
-        - xml
-        default: xml
