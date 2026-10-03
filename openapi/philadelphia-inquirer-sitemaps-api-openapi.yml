@@ -118,43 +118,6 @@ paths:
                 $ref: '#/components/schemas/UrlSet'
 components:
   schemas:
-    UrlSet:
-      type: object
-      description: A sitemap URL set.
-      properties:
-        urls:
-          type: array
-          items:
-            $ref: '#/components/schemas/SitemapUrl'
-    NewsUrlSet:
-      type: object
-      description: A Google News sitemap URL set.
-      properties:
-        urls:
-          type: array
-          items:
-            type: object
-            properties:
-              loc:
-                type: string
-                format: uri
-              news:
-                type: object
-                properties:
-                  publication:
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                        example: The Philadelphia Inquirer
-                      language:
-                        type: string
-                        example: en
-                  publication_date:
-                    type: string
-                    format: date-time
-                  title:
-                    type: string
     SitemapUrl:
       type: object
       properties:
@@ -201,6 +164,43 @@ components:
               lastmod:
                 type: string
                 format: date
+    UrlSet:
+      type: object
+      description: A sitemap URL set.
+      properties:
+        urls:
+          type: array
+          items:
+            $ref: '#/components/schemas/SitemapUrl'
+    NewsUrlSet:
+      type: object
+      description: A Google News sitemap URL set.
+      properties:
+        urls:
+          type: array
+          items:
+            type: object
+            properties:
+              loc:
+                type: string
+                format: uri
+              news:
+                type: object
+                properties:
+                  publication:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: The Philadelphia Inquirer
+                      language:
+                        type: string
+                        example: en
+                  publication_date:
+                    type: string
+                    format: date-time
+                  title:
+                    type: string
   parameters:
     outputType:
       name: outputType
