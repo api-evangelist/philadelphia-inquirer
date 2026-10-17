@@ -118,11 +118,11 @@ paths:
                 $ref: '#/components/schemas/UrlSet'
 components:
   schemas:
-    SitemapIndex:
+    NewsUrlSet:
       type: object
-      description: A sitemap index pointing at child sitemaps.
+      description: A Google News sitemap URL set.
       properties:
-        sitemaps:
+        urls:
           type: array
           items:
             type: object
@@ -130,9 +130,23 @@ components:
               loc:
                 type: string
                 format: uri
-              lastmod:
-                type: string
-                format: date
+              news:
+                type: object
+                properties:
+                  publication:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: The Philadelphia Inquirer
+                      language:
+                        type: string
+                        example: en
+                  publication_date:
+                    type: string
+                    format: date-time
+                  title:
+                    type: string
     SitemapUrl:
       type: object
       properties:
@@ -164,35 +178,6 @@ components:
               format: uri
             caption:
               type: string
-    NewsUrlSet:
-      type: object
-      description: A Google News sitemap URL set.
-      properties:
-        urls:
-          type: array
-          items:
-            type: object
-            properties:
-              loc:
-                type: string
-                format: uri
-              news:
-                type: object
-                properties:
-                  publication:
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                        example: The Philadelphia Inquirer
-                      language:
-                        type: string
-                        example: en
-                  publication_date:
-                    type: string
-                    format: date-time
-                  title:
-                    type: string
     UrlSet:
       type: object
       description: A sitemap URL set.
@@ -201,6 +186,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SitemapUrl'
+    SitemapIndex:
+      type: object
+      description: A sitemap index pointing at child sitemaps.
+      properties:
+        sitemaps:
+          type: array
+          items:
+            type: object
+            properties:
+              loc:
+                type: string
+                format: uri
+              lastmod:
+                type: string
+                format: date
   parameters:
     outputType:
       name: outputType
