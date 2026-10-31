@@ -1,4 +1,4 @@
-# The Philadelphia Inquirer (philadelphia-inquirer)
+# The Philadelphia Inquirer
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,123 +66,165 @@
 
 The Philadelphia Inquirer is the largest newspaper in Pennsylvania, owned by the nonprofit Lenfest Institute for Journalism. Inquirer.com publishes Philadelphia, regional, national, and world news, sports, business, opinion, arts, food, and obituaries. The Inquirer does not operate a public commercial developer program. Programmatic surfaces are limited to Arc XP-generated RSS feeds, news sitemaps, and a small set of open-source repositories from its `phillymedia` GitHub organization, including the `dewey-mcp` Model Context Protocol server that wraps an Azure AI Search index of the Inquirer archive.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/philadelphia-inquirer/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/philadelphia-inquirer/refs/heads/main/apis.yml)
+**Areas:** News · News Media · Newspaper · Journalism · Philadelphia · Pennsylvania · Local News · RSS · Sitemap · Arc Publishing · MCP
 
-## Scope
+## The Philadelphia Inquirer on APIs.io
 
-- **Type:** Index
+Everything profiled for The Philadelphia Inquirer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/philadelphia-inquirer/](https://apis.io/providers/philadelphia-inquirer/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- News
-- News Media
-- Newspaper
-- Journalism
-- Philadelphia
-- Pennsylvania
-- Local News
-- RSS
-- Sitemap
-- Arc Publishing
-- MCP
+- [The Philadelphia Inquirer Feeds API](https://apis.io/apis/philadelphia-inquirer/philadelphia-inquirer-feeds-api/) — Site-wide and per-category RSS feeds.
+- [The Philadelphia Inquirer Health API](https://apis.io/apis/philadelphia-inquirer/philadelphia-inquirer-health-api/) — Liveness and readiness probes.
+- [The Philadelphia Inquirer MCP API](https://apis.io/apis/philadelphia-inquirer/philadelphia-inquirer-mcp-api/) — Model Context Protocol surface.
+- [The Philadelphia Inquirer Sitemaps API](https://apis.io/apis/philadelphia-inquirer/philadelphia-inquirer-sitemaps-api/) — XML sitemaps and sitemap indexes.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### The Philadelphia Inquirer RSS Feeds
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Public RSS 2.0 feeds served from Arc XP's outbound feeds for Inquirer.com. A site-wide feed and per-category feeds expose article titles, links, descriptions, publication dates, and encoded article HTML for syndication and aggregation. Feeds are rebuilt hourly.
+- [Philadelphia Inquirer Agentic Access](https://apis.io/agentic-access/philadelphia-inquirer/philadelphia-inquirer-agentic-access/)
 
-- **Human URL:** [https://www.inquirer.com](https://www.inquirer.com)
-- **Base URL:** `https://www.inquirer.com/arc/outboundfeeds/rss`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- RSS
-- News
-- Syndication
-- Arc Publishing
+- [Dewey Search Result](https://apis.io/schemas/philadelphia-inquirer/dewey-search-result/)
+- [Philadelphia Inquirer RSS Item](https://apis.io/schemas/philadelphia-inquirer/rss-item/)
+- [Philadelphia Inquirer Sitemap URL](https://apis.io/schemas/philadelphia-inquirer/sitemap-url/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [OpenAPI](openapi/rss-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/rss.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/rss.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://www.inquirer.com)
+Data models expressed in JSON Structure.
 
-### The Philadelphia Inquirer Sitemaps
+- [Rss Item Structure](https://apis.io/json-structure/philadelphia-inquirer/rss-item-structure/)
 
-XML sitemaps and a Google News sitemap published by Arc XP. The sitemap index lists daily child sitemaps spanning roughly two years of inquirer.com URLs, with per-URL last-modified, change frequency, priority, and image metadata. A dedicated Google News sitemap exposes the most recent articles using the sitemap-news namespace.
+#### JSON-LD (1)
 
-- **Human URL:** [https://www.inquirer.com/robots.txt](https://www.inquirer.com/robots.txt)
-- **Base URL:** `https://www.inquirer.com/arc/outboundfeeds`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Philadelphia Inquirer Context](https://apis.io/jsonld/philadelphia-inquirer/philadelphia-inquirer-context/)
 
-- Sitemap
-- News
-- SEO
-- Arc Publishing
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [OpenAPI](openapi/sitemaps-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sitemaps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sitemaps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://www.inquirer.com/robots.txt)
+- [Philadelphia Inquirer Vocabulary](https://apis.io/vocabularies/philadelphia-inquirer/philadelphia-inquirer-vocabulary/)
 
-### Dewey MCP
+#### Examples (5)
 
-Dewey MCP is a containerized FastMCP server that exposes read-only search over the Inquirer's news archive backed by Azure AI Search. It surfaces a single `search_archive` MCP tool with text query, optional date and author filters, and a configurable result limit (max 20). The server is open source under the `phillymedia/dewey-mcp` repository and is the protocol surface for the broader Dewey AI librarian project, which emerged from a Lenfest Institute fellowship supported by Microsoft and OpenAI.
+Example requests and responses.
 
-- **Human URL:** [https://github.com/phillymedia/dewey-mcp](https://github.com/phillymedia/dewey-mcp)
+- [Dewey Mcp Searcharchive Example](https://apis.io/examples/philadelphia-inquirer/dewey-mcp-searchArchive-example/)
+- [Rss Getcategoryrssfeed Example](https://apis.io/examples/philadelphia-inquirer/rss-getCategoryRssFeed-example/)
+- [Rss Getsiterssfeed Example](https://apis.io/examples/philadelphia-inquirer/rss-getSiteRssFeed-example/)
+- [Sitemaps Getnewssitemap Example](https://apis.io/examples/philadelphia-inquirer/sitemaps-getNewsSitemap-example/)
+- [Sitemaps Getsitemapindex Example](https://apis.io/examples/philadelphia-inquirer/sitemaps-getSitemapIndex-example/)
 
-#### Tags
+#### Collections (7)
 
-- MCP
-- AI
-- Search
-- Archive
-- Azure AI Search
+Postman and Open Collection request collections.
 
-#### Properties
+- [Dewey MCP](https://apis.io/collections/philadelphia-inquirer/open-dewey-mcp/)
+- [Dewey MCP Feeds API](https://apis.io/collections/philadelphia-inquirer/open-philadelphia-inquirer-feeds-api/)
+- [Dewey MCP Feeds Health API](https://apis.io/collections/philadelphia-inquirer/open-philadelphia-inquirer-health-api/)
+- [Dewey Feeds MCP API](https://apis.io/collections/philadelphia-inquirer/open-philadelphia-inquirer-mcp-api/)
+- [Dewey MCP Feeds Sitemaps API](https://apis.io/collections/philadelphia-inquirer/open-philadelphia-inquirer-sitemaps-api/)
+- [The Philadelphia Inquirer RSS Feeds](https://apis.io/collections/philadelphia-inquirer/open-rss/)
+- [The Philadelphia Inquirer Sitemaps](https://apis.io/collections/philadelphia-inquirer/open-sitemaps/)
 
-- [GitHub Repository](https://github.com/phillymedia/dewey-mcp)
-- [Documentation](https://github.com/phillymedia/dewey-mcp#readme)
-- [OpenAPI](openapi/dewey-mcp-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dewey-mcp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dewey-mcp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-## Common Properties
+Spectral rulesets for the provider's contracts.
+
+- [The Philadelphia Inquirer — jsonschema rules](https://apis.io/rules/philadelphia-inquirer/philadelphia-inquirer-jsonschema-spectral-rules/)
+- [The Philadelphia Inquirer — rss rules](https://apis.io/rules/philadelphia-inquirer/rss-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Philadelphia Inquirer Domain Security](https://apis.io/security/philadelphia-inquirer/philadelphia-inquirer-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Philadelphia Inquirer Plans Pricing](https://apis.io/plans/philadelphia-inquirer/philadelphia-inquirer-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Philadelphia Inquirer Rate Limits](https://apis.io/rate-limits/philadelphia-inquirer/philadelphia-inquirer-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Philadelphia Inquirer Finops](https://apis.io/finops/philadelphia-inquirer/philadelphia-inquirer-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.inquirer.com)
-- [About](https://about.inquirer.com)
-- [GitHub Organization](https://github.com/phillymedia)
-- [Mobile App](https://apps.apple.com/us/app/the-philadelphia-inquirer/id1495601779)
-- [Mobile App](https://play.google.com/store/apps/details?id=com.philly.philly_native_android)
-- [Newsletter](https://www.inquirer.com/newsletters/)
-- [Subscribe](https://www.inquirer.com/subscribe/)
-- [Careers](https://www.inquirer.com/careers/)
-- [Parent Organization](https://www.lenfestinstitute.org)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Customers](undefined)
-- [Awards](undefined)
-- [GitHub Repository](https://github.com/phillymedia/dewey-mcp)
-- [GitHub Repository](https://github.com/phillymedia/dewey-ai)
-- [GitHub Repository](https://github.com/phillymedia/vestapol)
-- [GitHub Repository](https://github.com/phillymedia/data-engineering-handbook)
-- [GitHub Repository](https://github.com/phillymedia/inquirer-api.github.io)
-- [X (Twitter)](https://x.com/PhillyInquirer)
-- [Facebook](https://www.facebook.com/philly.com)
-- [Instagram](https://www.instagram.com/phillyinquirer/)
+- [Blog](https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml)
+- [GitHub](https://github.com/phillymedia)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 23.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 49.3 |
+| Contract governance | 13.6 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 5.3 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/philadelphia-inquirer/](https://apis.io/providers/philadelphia-inquirer/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for The Philadelphia Inquirer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/philadelphia-inquirer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
